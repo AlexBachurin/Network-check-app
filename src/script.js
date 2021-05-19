@@ -9,7 +9,7 @@ const container = document.querySelector('.network-container'),
 //wait for load
 window.addEventListener('load', async (e) => {
     //check on if online on load
-    const online = await(checkOnlineStatus());
+    const online = await checkOnlineStatus();
     //there we just show online, but if want to get data it is better to do here
     // e.g:  if (online) {
     //   getData(url).then(data => console.log(data)) 
@@ -43,14 +43,14 @@ const checkOnlineStatus = async () => {
   };
 
 //change html if offline
-function showOffline() {
+const showOffline = () => {
     network.classList.add('offline');
     wifiIcon.classList.add('offline');
     status.textContent = `You're offline now`
     text.textContent = `Please connect to the internet`
 }
 
-function showOnline() {
+const showOnline = () => {
     network.classList.remove('offline');
     wifiIcon.classList.remove('offline');
     status.textContent = `You're online now`
